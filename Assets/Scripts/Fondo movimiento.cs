@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class Fondomovimiento : MonoBehaviour
 {
-    [SerializeField] private Vector2 velocidadMov;
-    private Vector2 offset;
-    private Material material;
+    [SerializeField] private Vector2 velocidadMov; //Perfila la movilidad
+    private Vector2 offset; //Obitiene el valor
+    private Material material; //Mueve el metodo con su offset
 
     private void Awake()
     {
-        material = GetComponent<SpriteRenderer>().material;
+        //Manda a llamar el metodo
+        Inicializar();  
     }
-    void Update()
+    private void Update()
     {
+        //Manda a llamar el metodo
+        Movimiento();
+    }
+
+    private void Movimiento()
+    {
+        //Mueve el objeto
         offset = velocidadMov * Time.deltaTime;
         material.mainTextureOffset += offset;
+    }
+    private void Inicializar()
+    {
+        //Da el componente
+        material = GetComponent<SpriteRenderer>().material;
     }
 }

@@ -9,6 +9,7 @@ public class Muerte : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemigo"))
         {
+            //Reproduce el audio de muerte y reicicia la escena
             AudioManager.instance.Play("Impacto");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
